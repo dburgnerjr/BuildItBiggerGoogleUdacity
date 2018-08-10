@@ -16,7 +16,7 @@ android {
     buildToolsVersion '27.0.3'
 
     defaultConfig {
-        applicationId "com.danielburgnerjr.gradle.builditbigger"
+        applicationId "com.danielburgnerjr.builditbiggergoogleudacity"
         minSdkVersion 16
         targetSdkVersion 27
         versionCode 1
@@ -37,12 +37,12 @@ android {
 
     productFlavors {
         free {
-            applicationId 'com.udacity.gradle.builditbigger.free'
+            applicationId 'com.danielburgnerjr.builditbiggergoogleudacity.free'
             versionName "1.0­free"
             dimension "type"
         }
         paid {
-            applicationId 'com.udacity.gradle.builditbigger.paid'
+            applicationId 'com.danielburgnerjr.builditbiggergoogleudacity.paid'
             versionName "1.0­paid"
             dimension "type"
         }
@@ -59,7 +59,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     //endpointsServer project(path: ':backend', configuration: 'endpoints')
     implementation 'com.android.support:appcompat-v7:27.1.1'
@@ -68,22 +68,18 @@ dependencies {
     implementation 'com.google.code.findbugs:jsr305:3.0.2'
     implementation project(':jokeLibrary')
     implementation project(':androidjokelibrary')
-
     // Implementations due for a warning about different library versions
     // solutions found on Stack Overflow - http://bit.ly/2HvNHcz
     implementation 'com.android.support:customtabs:27.1.1'
     implementation 'com.android.support:support-media-compat:27.1.1'
     implementation 'com.android.support:support-v4:27.1.1'
-
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support:support-annotations:27.1.1'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
-
     freeImplementation 'com.google.android.gms:play-services-ads:15.0.1'
 }
