@@ -8,13 +8,13 @@ import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
 import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
-//import com.danielburgnerjr.gradle.builditbigger.backend.myApi.MyApi;
+import com.danielburgnerjr.builditbiggergoogleudacity.backend.myApi.MyApi;  // cannot resolve symbol myApi
 
 import java.io.IOException;
 
 class AsyncJokeTask extends AsyncTask<MainActivityFragment, Void, String> {
 
-    private static MyApi myApi = null;
+    private static MyApi myApi = null;  // same comment
     private MainActivityFragment fragment;
     @SuppressLint("StaticFieldLeak")
     private Context context;
@@ -23,7 +23,7 @@ class AsyncJokeTask extends AsyncTask<MainActivityFragment, Void, String> {
     @Override
     protected String doInBackground(MainActivityFragment... params) {
         if(myApi == null) {
-            MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
+            MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),  //same comment
                     new AndroidJsonFactory(), null)
 
                     .setRootUrl(LOCALHOST_IP_ADDRESS)
@@ -34,7 +34,7 @@ class AsyncJokeTask extends AsyncTask<MainActivityFragment, Void, String> {
                         }
                     });
 
-            myApi = builder.build();
+            myApi = builder.build();  // cannot resolve method build()
         }
 
         fragment = params[0];

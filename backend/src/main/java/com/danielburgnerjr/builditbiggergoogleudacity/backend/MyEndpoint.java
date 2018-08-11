@@ -1,4 +1,4 @@
-package com.danielburgnerjr.gradle.builditbigger.backend;
+package com.danielburgnerjr.builditbiggergoogleudacity.backend;
 
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
@@ -11,8 +11,8 @@ import javax.inject.Named;
         name = "myApi",
         version = "v1",
         namespace = @ApiNamespace(
-                ownerDomain = "backend.builditbigger.gradle.danielburgnerjr.com",
-                ownerName = "backend.builditbigger.gradle.danielburgnerjr.com",
+                ownerDomain = "backend.builditbiggergoogleudacity.danielburgnerjr.com",
+                ownerName = "backend.builditbiggergoogleudacity.danielburgnerjr.com",
                 packagePath = ""
         )
 )

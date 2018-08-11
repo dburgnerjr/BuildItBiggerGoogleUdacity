@@ -1,4 +1,4 @@
-package com.danielburgnerjr.gradle.builditbigger.backend;
+package com.danielburgnerjr.builditbiggergoogleudacity.backend;
 
 /** The object model for the data we are sending through endpoints */
 public class MyBean {
