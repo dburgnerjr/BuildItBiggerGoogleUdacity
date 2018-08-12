@@ -1,6 +1,6 @@
 package com.danielburgnerjr.builditbiggergoogleudacity;
 
-iimport android.content.Context;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -33,11 +33,11 @@ public class MainActivityFragment extends Fragment {
 
         // Set onClickListener for the button
         Button button = root.findViewById(R.id.joke_button);
-        button.setOnClickListener(new View.OnClickListener(){
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
-                loadJokes();
+                tellJoke();
             }
         });
 
@@ -46,8 +46,8 @@ public class MainActivityFragment extends Fragment {
 
         return root;
     }
-    public void tellJoke(){
-        new EndpointsAsyncTask().execute(this);
+    public void tellJoke() {
+        new AsyncJokeTask().execute(this);
     }
 
     public void launchDisplayJokeActivity(){
@@ -55,7 +55,7 @@ public class MainActivityFragment extends Fragment {
             Context context = getActivity();
             Intent intent = new Intent(context, DisplayJokesActivity.class);
             assert context != null;
-            intent.putExtra(context.getString(R.string.jokeEnvelope), loadedJoke);
+            intent.putExtra(context.getString(R.string.joke), loadedJoke);
             context.startActivity(intent);
             progressBar.setVisibility(View.GONE);
         }

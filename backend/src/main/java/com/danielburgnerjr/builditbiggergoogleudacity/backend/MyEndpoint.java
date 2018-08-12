@@ -3,6 +3,7 @@ package com.danielburgnerjr.builditbiggergoogleudacity.backend;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
+import com.danielburgnerjr.jokelibrary.Joke;
 
 import javax.inject.Named;
 
@@ -19,10 +20,11 @@ import javax.inject.Named;
 public class MyEndpoint {
 
     /** A simple endpoint method that takes a name and says Hi back */
-    @ApiMethod(name = "sayHi")
-    public MyBean sayHi(@Named("name") String name) {
+    @ApiMethod(name = "showJoke")
+    public MyBean showJoke() {
         MyBean response = new MyBean();
-        response.setData("Hi, " + name);
+        Joke jokeProvider = new Joke();
+        response.setData(jokeProvider.getJoke());
 
         return response;
     }

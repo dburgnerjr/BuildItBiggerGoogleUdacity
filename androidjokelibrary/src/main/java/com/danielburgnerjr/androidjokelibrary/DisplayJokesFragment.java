@@ -29,7 +29,7 @@ public class DisplayJokesFragment extends Fragment {
         TextView jokeTextView = view.findViewById(R.id.tv_joke);
         if (!TextUtils.isEmpty(joke)) {
             jokeTextView.setText(joke);
-        }else {
+        } else {
             jokeTextView.setText(R.string.have_fun);
         }
 
