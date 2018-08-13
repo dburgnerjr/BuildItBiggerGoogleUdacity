@@ -33,3 +33,10 @@ dependencies {
     implementation 'com.google.http-client:google-http-client-android:1.23.0'
     implementation project(path: ':jokeLibrary')
 }
+// for using with a phone instead of an emulator
+appengine {
+    run {
+        host = "0.0.0.0"
+        port = 8080
+    }
+}

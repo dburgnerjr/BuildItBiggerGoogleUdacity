@@ -3,6 +3,7 @@ package com.danielburgnerjr.builditbiggergoogleudacity;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
@@ -18,7 +19,7 @@ class AsyncJokeTask extends AsyncTask<MainActivityFragment, Void, String> {
     private MainActivityFragment fragment;
     @SuppressLint("StaticFieldLeak")
     private Context context;
-    private static final String LOCALHOST_IP_ADDRESS = "http://10.0.2.2:8080/_ah/api/";
+    private static final String LOCALHOST_IP_ADDRESS = "http://10.0.0.7:8080/_ah/api/";
 
     @Override
     protected String doInBackground(MainActivityFragment... params) {
@@ -49,7 +50,7 @@ class AsyncJokeTask extends AsyncTask<MainActivityFragment, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-
+        Toast.makeText(context, "Joke is: " + result, Toast.LENGTH_LONG);
         fragment.loadedJoke = result;
         fragment.launchDisplayJokeActivity();
     }

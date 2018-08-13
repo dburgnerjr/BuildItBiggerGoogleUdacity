@@ -21,8 +21,8 @@ public class AsyncJokeTaskTest {
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
 
     @Test
-    public void jokeAsyncTaskTest() {
-        onView(withId(R.id.tell_joke_button))
+    public void asyncJokeTaskTest() {
+        onView(withId(R.id.joke_button))
                 .check(matches(withText(R.string.button_text)));
 
         String result = null;

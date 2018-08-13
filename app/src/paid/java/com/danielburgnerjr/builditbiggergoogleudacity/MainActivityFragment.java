@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 
 import com.danielburgnerjr.androidjokelibrary.DisplayJokesActivity;
+import com.danielburgnerjr.androidjokelibrary.DisplayJokesFragment;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -55,7 +56,7 @@ public class MainActivityFragment extends Fragment {
             Context context = getActivity();
             Intent intent = new Intent(context, DisplayJokesActivity.class);
             assert context != null;
-            intent.putExtra(context.getString(R.string.joke), loadedJoke);
+            intent.putExtra(DisplayJokesFragment.EXTRA_JOKE, loadedJoke);
             context.startActivity(intent);
             progressBar.setVisibility(View.GONE);
         }

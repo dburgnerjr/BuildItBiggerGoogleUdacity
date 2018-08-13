@@ -20,6 +20,7 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
 import com.google.android.gms.ads.doubleclick.PublisherInterstitialAd;
 import com.danielburgnerjr.androidjokelibrary.DisplayJokesActivity;
+import com.danielburgnerjr.androidjokelibrary.DisplayJokesFragment;
 
 import java.util.Objects;
 
@@ -84,7 +85,7 @@ public class MainActivityFragment extends Fragment {
 
 
         Button button = root.findViewById(R.id.joke_button);
-        button.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 if (interstitialAd.isLoaded()) {
@@ -111,12 +112,12 @@ public class MainActivityFragment extends Fragment {
         new AsyncJokeTask().execute(this);
     }
 
-    public void launchDisplayJokeActivity() {
+    public void launchDisplayJokeActivity(){
         if (!testFlag) {
             Context context = getActivity();
             Intent intent = new Intent(context, DisplayJokesActivity.class);
             assert context != null;
-            intent.putExtra(context.getString(R.string.joke), loadedJoke);
+            intent.putExtra(DisplayJokesFragment.EXTRA_JOKE, loadedJoke);
             context.startActivity(intent);
             progressBar.setVisibility(View.GONE);
         }
