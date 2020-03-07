@@ -1,6 +1,6 @@
 package com.danielburgnerjr.androidjokelibrary;
 
-import android.support.v4.app.FragmentActivity;
+import androidx.fragment.app.FragmentActivity;
 import android.os.Bundle;
 
 public class DisplayJokesActivity extends FragmentActivity {
