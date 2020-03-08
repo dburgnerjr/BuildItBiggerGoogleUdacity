@@ -50,7 +50,7 @@ class AsyncJokeTask extends AsyncTask<MainActivityFragment, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-        Toast.makeText(context, "Joke is: " + result, Toast.LENGTH_LONG);
+        Toast.makeText(context, "Joke is: " + result, Toast.LENGTH_LONG).show();
         fragment.loadedJoke = result;
         fragment.launchDisplayJokeActivity();
     }

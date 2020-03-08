@@ -12,13 +12,13 @@ buildscript {
 }
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 29
     buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "com.danielburgnerjr.builditbiggergoogleudacity"
         minSdkVersion 16
-        targetSdkVersion 27
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -62,23 +62,23 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     endpointsServer project(path: ':backend', configuration: 'endpoints')
-    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'com.google.api-client:google-api-client:1.23.0'
     implementation 'com.google.http-client:google-http-client-android:1.23.0'
     implementation 'com.google.code.findbugs:jsr305:3.0.2'
     implementation project(':androidjokelibrary')
     // Implementations due for a warning about different library versions
     // solutions found on Stack Overflow - http://bit.ly/2HvNHcz
-    implementation 'androidx.browser:browser:1.0.0'
-    implementation 'androidx.media:media:1.0.0'
+    implementation 'androidx.browser:browser:1.2.0'
+    implementation 'androidx.media:media:1.1.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.annotation:annotation:1.0.0'
+    androidTestImplementation 'androidx.annotation:annotation:1.1.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test:rules:1.1.1'
-    freeImplementation 'com.google.android.gms:play-services-ads:15.0.1'
+    androidTestImplementation 'androidx.test:rules:1.2.0'
+    freeImplementation 'com.google.android.gms:play-services-ads:19.0.0'
 }

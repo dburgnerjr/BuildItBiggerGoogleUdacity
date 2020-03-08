@@ -1,6 +1,6 @@
 package com.danielburgnerjr.androidjokelibrary;
 
-import android.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -22,9 +22,12 @@ public class DisplayJokesFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_joke, container, false);
 
-        String joke;
-        Intent intent = getActivity().getIntent();
-        joke = intent.getStringExtra(EXTRA_JOKE);
+        String joke = "";
+        Intent intent;
+        if (getActivity() != null) {
+            intent = getActivity().getIntent();
+            joke = intent.getStringExtra(EXTRA_JOKE);
+        }
 
         TextView jokeTextView = view.findViewById(R.id.tv_joke);
         if (!TextUtils.isEmpty(joke)) {

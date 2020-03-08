@@ -17,11 +17,15 @@ import android.widget.ProgressBar;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.RequestConfiguration;
 import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
 import com.google.android.gms.ads.doubleclick.PublisherInterstitialAd;
 import com.danielburgnerjr.androidjokelibrary.DisplayJokesActivity;
 import com.danielburgnerjr.androidjokelibrary.DisplayJokesFragment;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -34,9 +38,8 @@ public class MainActivityFragment extends Fragment {
     }
 
     private ProgressBar progressBar = null;
-    public String loadedJoke = null;
+    String loadedJoke = null;
 
-    public boolean testFlag = false;
     private PublisherInterstitialAd interstitialAd = null;
     private final String LOG_TAG = MainActivityFragment.class.getSimpleName();
 
@@ -100,11 +103,15 @@ public class MainActivityFragment extends Fragment {
         progressBar = root.findViewById(R.id.joke_progressbar);
         progressBar.setVisibility(View.GONE);
 
+        List<String> testDevices = new ArrayList<>();
+        testDevices.add(AdRequest.DEVICE_ID_EMULATOR);
 
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+        RequestConfiguration requestConfiguration = new RequestConfiguration.Builder()
+                .setTestDeviceIds(testDevices)
                 .build();
-        mAdView.loadAd(adRequest);
+        MobileAds.setRequestConfiguration(requestConfiguration);
+
+        mAdView.loadAd(new AdRequest.Builder().build());
         return root;
     }
 
@@ -112,22 +119,24 @@ public class MainActivityFragment extends Fragment {
         new AsyncJokeTask().execute(this);
     }
 
-    public void launchDisplayJokeActivity(){
-        if (!testFlag) {
-            Context context = getActivity();
-            Intent intent = new Intent(context, DisplayJokesActivity.class);
-            assert context != null;
-            intent.putExtra(DisplayJokesFragment.EXTRA_JOKE, loadedJoke);
-            context.startActivity(intent);
-            progressBar.setVisibility(View.GONE);
-        }
+    void launchDisplayJokeActivity(){
+        Context context = getActivity();
+        Intent intent = new Intent(context, DisplayJokesActivity.class);
+        assert context != null;
+        intent.putExtra(DisplayJokesFragment.EXTRA_JOKE, loadedJoke);
+        context.startActivity(intent);
+        progressBar.setVisibility(View.GONE);
     }
 
     private void requestNewInterstitial() {
-        PublisherAdRequest adRequest = new PublisherAdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .build();
+        List<String> testDevices = new ArrayList<>();
+        testDevices.add(AdRequest.DEVICE_ID_EMULATOR);
 
-        interstitialAd.loadAd(adRequest);
+        RequestConfiguration requestConfiguration = new RequestConfiguration.Builder()
+                .setTestDeviceIds(testDevices)
+                .build();
+        MobileAds.setRequestConfiguration(requestConfiguration);
+
+        interstitialAd.loadAd(new PublisherAdRequest.Builder().build());
     }
 }
