@@ -7,13 +7,38 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-
+import java.io.File;
 public class MainActivity extends AppCompatActivity {
+
+    String strPackName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        strPackName = getApplicationContext().getPackageName();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        File myDir = new File(getApplicationContext().getExternalFilesDir(null) + "/");
+        String strPath = myDir.getPath();
+        // below line displays the path
+        Toast.makeText(getApplicationContext(), "MainActivity: " +  strPath, Toast.LENGTH_LONG).show();
+
+        /*private bundle = Bundle()
+        bundle.putString("path", myDir.toString())
+        // set MainActivityFragment Arguments
+        val fragobj = MainActivityFragment()
+        fragobj.arguments = bundle
+
+        val manager = supportFragmentManager
+
+        // Begin the fragment transition using support fragment manager
+        val transaction = manager.beginTransaction()
+
+        // add the fragment on container
+        transaction.add(R.id.main_fragment, fragobj)
+
+        // Finishing the transition
+        transaction.commit()*/
     }
 
 

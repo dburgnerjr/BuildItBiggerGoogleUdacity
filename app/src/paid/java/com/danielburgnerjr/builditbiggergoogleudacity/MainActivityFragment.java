@@ -22,10 +22,8 @@ public class MainActivityFragment extends Fragment {
     public MainActivityFragment() {
     }
 
-    ProgressBar progressBar = null;
-    public String loadedJoke = null;
-
-    public boolean testFlag = false;
+    private ProgressBar progressBar = null;
+    String loadedJoke = null;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -51,15 +49,12 @@ public class MainActivityFragment extends Fragment {
         new AsyncJokeTask().execute(this);
     }
 
-    public void launchDisplayJokeActivity(){
-        if (!testFlag) {
-            Context context = getActivity();
-            Intent intent = new Intent(context, DisplayJokesActivity.class);
-            assert context != null;
-            intent.putExtra(DisplayJokesFragment.EXTRA_JOKE, loadedJoke);
-            context.startActivity(intent);
-            progressBar.setVisibility(View.GONE);
-        }
-
+    void launchDisplayJokeActivity(){
+        Context context = getActivity();
+        Intent intent = new Intent(context, DisplayJokesActivity.class);
+        assert context != null;
+        intent.putExtra(DisplayJokesFragment.EXTRA_JOKE, loadedJoke);
+        context.startActivity(intent);
+        progressBar.setVisibility(View.GONE);
     }
 }
