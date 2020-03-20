@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         transaction.commit()*/
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -67,6 +66,4 @@ public class MainActivity extends AppCompatActivity {
     public void tellJoke(View view) {
         Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
     }
-
-
 }

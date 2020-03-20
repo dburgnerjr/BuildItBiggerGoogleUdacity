@@ -88,15 +88,12 @@ public class MainActivityFragment extends Fragment {
 
 
         Button button = root.findViewById(R.id.joke_button);
-        button.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                if (interstitialAd.isLoaded()) {
-                    interstitialAd.show();
-                } else {
-                    progressBar.setVisibility(View.VISIBLE);
-                    tellJoke();
-                }
+        button.setOnClickListener(v -> {
+            if (interstitialAd.isLoaded()) {
+                interstitialAd.show();
+            } else {
+                progressBar.setVisibility(View.VISIBLE);
+                tellJoke();
             }
         });
 
