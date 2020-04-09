@@ -112,7 +112,7 @@ public class MainActivityFragment extends Fragment {
         return root;
     }
 
-    public void tellJoke(){
+    protected void tellJoke(){
         new AsyncJokeTask().execute(this);
     }
 

@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!--    <item name="loading" type="id">onAdLoaded: interstitial ad is ready to view!</item>-->
+   <item name="loading" type="id" />
 </resources>
